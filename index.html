@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body class="bg-neutral-100 tracking-wider text-sm">
-    <div id="app" class="h-screen flex flex-col items-center justify-center">
-      <div class="w-[min(100%,25rem)] flex flex-col gap-3 bg-neutral-200 p-6">
-        <h1 class="text-2xl text-neutral-500">Weather</h1>
+    <div id="app" class="h-screen flex flex-col items-center">
+      <div
+        class="w-[min(100%,25rem)] flex flex-col gap-3 bg-neutral-200 shadow-xl p-6 mt-10"
+      >
+        <h1 class="text-2xl text-neutral-600 text-center">Weather</h1>
 
         <form id="form" class="flex">
           <input
@@ -22,7 +24,7 @@
           <button type="submit" class="px-4 py-2 bg-blue-600">OK</button>
         </form>
 
-        <div id="card" class="bg-white">
+        <div id="card" class="bg-white mt-3">
           <img src="https://placehold.co/400x300" alt="" />
           <div
             id="details"

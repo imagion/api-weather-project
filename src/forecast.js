@@ -19,12 +19,3 @@ const getCity = async city => {
 
   return data[0]
 }
-
-getCity('moscow')
-  .then(data => {
-    return getWeather(data.Key)
-  })
-  .then(data => {
-    console.log(data)
-  })
-  .catch(e => console.error(e))

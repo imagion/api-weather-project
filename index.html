@@ -24,8 +24,13 @@
           <button type="submit" class="px-4 py-2 bg-blue-600">OK</button>
         </form>
 
-        <div id="card" class="bg-white mt-3">
-          <img src="https://placehold.co/400x300" alt="" />
+        <div id="card" class="flex flex-col items-center bg-white mt-3 hidden">
+          <img id="image" src="https://placehold.co/400x300" />
+          <div
+            class="relative w-24 top-[-3rem] mb-[-3rem] bg-neutral-200 rounded-full"
+          >
+            <img id="icon" src="" alt="" />
+          </div>
           <div
             id="details"
             class="uppercase text-center text-neutral-500 [&>*+*]:mt-2 p-2"

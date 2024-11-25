@@ -4,14 +4,13 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { useWeather } from '@/app/hooks/useWeather';
 import { cn } from '@/app/lib/utils';
-import getConfig from 'next/config';
 
 export default function Weather() {
   const [inputValue, setInputValue] = useState<string>('');
   const [city, setCity] = useState<string>('');
   const inputRef = useRef<HTMLInputElement>(null);
   const { cityDetails, cityWeather, error } = useWeather(city);
-  const { basePath } = getConfig().basePath || '';
+  const basePath = '/api-weather-project';
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

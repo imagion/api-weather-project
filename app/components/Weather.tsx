@@ -4,12 +4,15 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { useWeather } from '@/app/hooks/useWeather';
 import { cn } from '@/app/lib/utils';
+import getConfig from 'next/config';
 
 export default function Weather() {
   const [inputValue, setInputValue] = useState<string>('');
   const [city, setCity] = useState<string>('');
   const inputRef = useRef<HTMLInputElement>(null);
   const { cityDetails, cityWeather, error } = useWeather(city);
+  const { publicRuntimeConfig } = getConfig();
+  const basePath = publicRuntimeConfig.basePath;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -59,14 +62,18 @@ export default function Weather() {
             cityDetails ? 'flex' : 'hidden'
           )}>
           <Image
-            src={cityWeather.IsDayTime ? '/day.svg' : '/night.svg'}
+            src={
+              cityWeather.IsDayTime
+                ? `${basePath}/day.svg`
+                : `${basePath}/night.svg`
+            }
             width={400}
             height={400}
             alt='Day or Night'
           />
           <div className='relative w-24 top-[-3rem] mb-[-3rem] bg-neutral-200 rounded-full'>
             <Image
-              src={`/icons/${cityWeather.WeatherIcon}.svg`}
+              src={`${basePath}/icons/${cityWeather.WeatherIcon}.svg`}
               width={100}
               height={100}
               alt='Weather Icon'

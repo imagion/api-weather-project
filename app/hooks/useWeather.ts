@@ -37,7 +37,7 @@ export const useWeather = (city: string) => {
         const getCity = async (city: string): Promise<CityDetails> => {
           const base =
             'http://dataservice.accuweather.com/locations/v1/cities/search';
-          const query = `?apikey=${KEY}&q=${city}&language=${'ru-ru'}`;
+          const query = `?apikey=${KEY}&q=${encodeURIComponent(city)}&language=${'ru-ru'}`;
           const res = await fetch(base + query);
           const data = await res.json();
           return data[0];

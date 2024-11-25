@@ -11,8 +11,7 @@ export default function Weather() {
   const [city, setCity] = useState<string>('');
   const inputRef = useRef<HTMLInputElement>(null);
   const { cityDetails, cityWeather, error } = useWeather(city);
-  const { publicRuntimeConfig } = getConfig();
-  const basePath = publicRuntimeConfig.basePath;
+  const { basePath } = getConfig().basePath || '';
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
